@@ -11,10 +11,5 @@ def hwid():
         return "Authed"
     else:
         return "Not Authed!"
-
-@app.route("/list")
-def list():
-    hwids = open("hwids.txt")
-    return "%s" % hwids.read()
-
+    
 app.run("0.0.0.0", 80, debug=True)
