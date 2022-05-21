@@ -11,5 +11,12 @@ def hwid():
         return "Authed"
     else:
         return "Not Authed!"
+
+@app.route("/status")
+def status():
+    try:
+        return "Auth Is Online!"
+    except Exception as err:
+        return "Error: %s" % err
     
 app.run("0.0.0.0", 80, debug=True)
