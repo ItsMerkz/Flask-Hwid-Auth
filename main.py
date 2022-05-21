@@ -30,8 +30,6 @@ async def hwid(ctx, message):
             await ctx.send("User Now Authed!")
     if ctx.author.id != int(config["ownerid"]):
         await ctx.send("Only <@%s> Can Auth Users!" % config["ownerid"])
-    if message == None and ctx.author.id == int(config["ownerid"]):
-        await ctx.send("You Must Parse The Hwid!")
 
 @client.command()
 async def checkuser(ctx, message):
@@ -39,12 +37,10 @@ async def checkuser(ctx, message):
         await ctx.send("This User Is Already Authed!")
     else:
         await ctx.send("This User Is Not Authed!")
-    if message == None:
-        await ctx.send("You Must Parse The Hwid!")
 
 @client.command()
 async def remove(ctx, message):
-    if ctx.author.id == int(config["ownerid"]) and message != None and(message in hwids.read()):
+    if ctx.author.id == int(config["ownerid"]) and (message in hwids.read()):
         lines = open("Auth/hwids.txt").read().splitlines()
         for i in range(len(lines)):
             l = lines[i]
@@ -54,10 +50,8 @@ async def remove(ctx, message):
         for line in lines:
             open("Auth/removed.txt", "a").write(line + "\n")
         await ctx.send("Removed User %s Sucessfully!" % message)
-    if ctx.author.id != int(config["ownerid"]):
+    else:
         await ctx.send("Only <@%s> Can Remove Users!" % config["ownerid"])
-    if message == None and ctx.author.id == int(config["ownerid"]):
-        await ctx.send("You Must Parse The HWID To Remove!")
 
 @client.command()
 async def help(ctx):
