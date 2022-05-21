@@ -61,7 +61,7 @@ async def remove(ctx, message):
 
 @client.command()
 async def help(ctx):
-    embed = discord.Embed(title="Help Command!", description="**%shelp** - Can Be Used By Anyone, Returns This Message\n**%shwid** - Can Only Be Used By Owner, Adds User To Auth\n**%scheckuser** - Can Be Used By Anyone, Checks Hwid To See If Its Authed!\n%sremove - Can Only Be Used By Owner, Removes A Hwid From Auth!" % (config["prefix"], config["prefix"], config["prefix"], config["prefix"]))
+    embed = discord.Embed(title="Help Command!", description="**%shelp** - Can Be Used By Anyone, Returns This Message\n**%shwid** - Can Only Be Used By Owner, Adds User To Auth\n**%scheckuser** - Can Be Used By Anyone, Checks Hwid To See If Its Authed!\n**%sremove** - Can Only Be Used By Owner, Removes A Hwid From Auth!" % (config["prefix"], config["prefix"], config["prefix"], config["prefix"]))
     await ctx.send(embed=embed)
 
 if __name__ == '__main__':
