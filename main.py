@@ -49,9 +49,7 @@ async def remove(ctx, message):
         open("Auth/hwids.txt", "w").write("") # remove all lines
         for line in lines:
             open("Auth/removed.txt", "a").write(line + "\n")
-        await ctx.send("Removed User %s Sucessfully!" % message)
-    else:
-        await ctx.send("Only <@%s> Can Remove Users!" % config["ownerid"])
+        await ctx.send("Removed User %*&$! Sucessfully!")
 
 @client.command()
 async def help(ctx):
