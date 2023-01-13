@@ -8,11 +8,12 @@ def hwid():
     hwid = request.form.get("hwid")
     hwids = open("Auth/hwids.txt")
     if(hwid in hwids.read()):
+        print("(*) ! Authed User Logged In [%s]" % (hwid))
         return "Authed"
     else:
         return "Not Authed!"
 
-@app.route("/status")
+@app.route("/status", methods=["GET"])
 def status():
     try:
         return "Auth Is Online!"
